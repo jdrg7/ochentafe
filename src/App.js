@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
+import { Provider } from 'react-redux';
+
 import Splash from './Views/Splash';
 import Routes from './Routes';
+
+import store from './Store/store';
 
 function App() {
   const [appLoaded, setAppLoaded] = useState(false);
@@ -11,10 +15,10 @@ function App() {
   }
     , []);
   return (
-    <>
+    <Provider>
       {!appLoaded && <Splash />}
       {appLoaded && <Routes />}
-    </>
+    </Provider>
   );
 }
 
